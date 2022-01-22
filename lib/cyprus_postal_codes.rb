@@ -3,6 +3,5 @@
 require_relative "cyprus_postal_codes/version"
 
 module CyprusPostalCodes
-  class Error < StandardError; end
-  # Your code goes here...
+  autoload :Error, "cyprus_postal_codes/error"
 end
