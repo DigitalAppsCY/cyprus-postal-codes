@@ -2,10 +2,6 @@
 
 RSpec.describe CyprusPostalCodes do
   it "has a version number" do
-    expect(CyprusPostalCodes::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
+    expect(CyprusPostalCodes::VERSION).to be("0.1.0")
   end
 end
