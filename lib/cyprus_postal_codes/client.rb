@@ -17,9 +17,7 @@ module CyprusPostalCodes
     end
 
     def get(resource, options = {})
-      @last_response = connection.get(resource, options.merge(default_params)) do |request|
-        request.headers["Authorization"] = api_key
-      end
+      @last_response = connection.get(resource, options.merge(default_params))
       @last_response.body["data"]
     end
 
@@ -40,6 +38,7 @@ module CyprusPostalCodes
     def connection
       @connection ||= Faraday.new do |conn|
         conn.url_prefix = BASE_URL
+        conn.headers["Authorization"] = api_key
         conn.adapter Faraday.default_adapter
         conn.request :json
         conn.response :json, content_type: "application/json"
