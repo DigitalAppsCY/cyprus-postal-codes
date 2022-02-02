@@ -9,16 +9,15 @@ module CyprusPostalCodes
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
-    attr_reader :api_key
+    attr_reader :api_key, :lng
 
-    def initialize(api_key:)
+    def initialize(api_key:, lng: "el")
       @api_key = api_key
+      @lng = lng
     end
 
     def get(resource, options = {})
-      @last_response = connection.get(resource, options) do |request|
-        request.headers["Authorization"] = api_key
-      end
+      @last_response = connection.get(resource, options.merge(default_params))
       @last_response.body["data"]
     end
 
@@ -30,11 +29,16 @@ module CyprusPostalCodes
       "#<CyprusPostalCodes::Client>"
     end
 
+    def default_params
+      { lng: lng }
+    end
+
     private
 
     def connection
       @connection ||= Faraday.new do |conn|
         conn.url_prefix = BASE_URL
+        conn.headers["Authorization"] = api_key
         conn.adapter Faraday.default_adapter
         conn.request :json
         conn.response :json, content_type: "application/json"
