@@ -16,5 +16,9 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+# be a bit kinder with our metrics
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
+
 Layout/LineLength:
   Max: 120
