@@ -10,15 +10,30 @@ RSpec.describe CyprusPostalCodes::Client do
   describe "get" do
     let(:connection) { instance_double(Faraday::Connection, get: Struct.new(:body).new({ data: "" })) }
     let(:service) { instance_double(described_class) }
-    let(:params) { { post_code: 8020 } }
 
-    it "calls the requested resource with the specified parameters" do
+    before do
       allow(Faraday).to receive(:new).and_return(connection)
       allow(described_class).to receive(:initialize).and_return(service)
+    end
 
-      described_class.new(api_key: "api_key").get("address", params)
+    context "when language param is not initialize it has el as default " do
+      let(:params) { { post_code: 8020, lng: "el" } }
 
-      expect(connection).to have_received(:get).with("address", params)
+      it "calls the requested resource with the specified parameters" do
+        described_class.new(api_key: "api_key").get("address", params)
+
+        expect(connection).to have_received(:get).with("address", params)
+      end
+    end
+
+    context "when language param is not initialize it uses el as default" do
+      let(:params) { { post_code: 8020, lng: "en" } }
+
+      it "calls the requested resource with the specified parameters" do
+        described_class.new(api_key: "api_key", lng: "en").get("address", params)
+
+        expect(connection).to have_received(:get).with("address", params)
+      end
     end
   end
 end

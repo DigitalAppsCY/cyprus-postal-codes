@@ -9,14 +9,15 @@ module CyprusPostalCodes
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
-    attr_reader :api_key
+    attr_reader :api_key, :lng
 
-    def initialize(api_key:)
+    def initialize(api_key:, lng: "el")
       @api_key = api_key
+      @lng = lng
     end
 
     def get(resource, options = {})
-      @last_response = connection.get(resource, options) do |request|
+      @last_response = connection.get(resource, options.merge(default_params)) do |request|
         request.headers["Authorization"] = api_key
       end
       @last_response.body["data"]
@@ -28,6 +29,10 @@ module CyprusPostalCodes
 
     def inspect
       "#<CyprusPostalCodes::Client>"
+    end
+
+    def default_params
+      { lng: lng }
     end
 
     private
