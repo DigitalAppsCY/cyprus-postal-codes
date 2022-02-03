@@ -7,6 +7,7 @@ module CyprusPostalCodes
   class Client
     include Addresses
     include AddressesPaginator
+    include Districts
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
