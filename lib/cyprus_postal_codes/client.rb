@@ -6,6 +6,7 @@ require "faraday_middleware"
 module CyprusPostalCodes
   class Client
     include Addresses
+    include AddressesPaginator
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
