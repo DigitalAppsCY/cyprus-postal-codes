@@ -5,6 +5,9 @@ require:
 AllCops:
   TargetRubyVersion: 2.7
 
+RSpec/NestedGroups:
+  Max: 4
+
 Style/Documentation:
   Enabled: false
 

@@ -2,7 +2,7 @@
 
 module CyprusPostalCodes
   class Client
-    module AddressesPaginator
+    module Paginator
       def next_page
         paginator&.dig("tokens", "next_page")
       end
@@ -17,8 +17,14 @@ module CyprusPostalCodes
 
       private
 
+      RESOURCE_INDEX = 2
+
       def paginator
-        @paginator = last_response&.body&.dig("data", "addresses", "paginator")
+        @paginator = last_response&.body&.dig("data", resource, "paginator")
+      end
+
+      def resource
+        last_response&.body&.dig("data")&.keys&.fetch(RESOURCE_INDEX)
       end
     end
   end

@@ -19,7 +19,7 @@ RSpec.describe CyprusPostalCodes::Client::Areas do
 
       service.areas(district: "lefkosia")
 
-      expect(service).to have_received(:get).with("get-areas", district: "lefkosia")
+      expect(service).to have_received(:get).with("get-areas", district: "lefkosia", page_token: nil)
     end
 
     it "expects the district to be set" do
