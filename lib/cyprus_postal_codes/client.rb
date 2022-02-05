@@ -12,6 +12,7 @@ module CyprusPostalCodes
     include Search
     include GovernmentServices
     include PostOfficeBoxes
+    include Parcel24Locations
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 

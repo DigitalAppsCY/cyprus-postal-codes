@@ -12,4 +12,5 @@ module CyprusPostalCodes
   autoload :Search, "cyprus_postal_codes/client/search"
   autoload :GovernmentServices, "cyprus_postal_codes/client/government_services"
   autoload :PostOfficeBoxes, "cyprus_postal_codes/client/post_office_boxes"
+  autoload :Parcel24Locations, "cyprus_postal_codes/client/parcel24_locations"
 end
