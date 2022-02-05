@@ -22,10 +22,13 @@ RSpec.describe CyprusPostalCodes::Client::Paginator do
           "language" => "el",
           "addresses" =>
           { "paginator" =>
-            { "total_pages" => "12",
+            { "total_count" => "100",
+              "total_pages" => "12",
               "tokens" =>
               { "next_page" => "next_page_token",
-                "previous_page" => "previous_page_token" } } } } }
+                "previous_page" => "previous_page_token",
+                "first_page" => "first_page_token",
+                "last_page" => "last_page_token" } } } } }
     end
 
     describe "next_page" do
@@ -96,10 +99,13 @@ RSpec.describe CyprusPostalCodes::Client::Paginator do
           "language" => "el",
           "result" =>
           { "paginator" =>
-            { "total_pages" => "12",
+            { "total_count" => "100",
+              "total_pages" => "12",
               "tokens" =>
               { "next_page" => "next_page_token",
-                "previous_page" => "previous_page_token" } } } } }
+                "previous_page" => "previous_page_token",
+                "first_page" => "first_page_token",
+                "last_page" => "last_page_token" } } } } }
     end
 
     describe "next_page" do
@@ -172,10 +178,13 @@ RSpec.describe CyprusPostalCodes::Client::Paginator do
           "language" => "el",
           "result" =>
           { "paginator" =>
-            { "total_pages" => "12",
+            { "total_count" => "100",
+              "total_pages" => "12",
               "tokens" =>
               { "next_page" => "next_page_token",
-                "previous_page" => "previous_page_token" } } } } }
+                "previous_page" => "previous_page_token",
+                "first_page" => "first_page_token",
+                "last_page" => "last_page_token" } } } } }
     end
 
     describe "next_page" do
