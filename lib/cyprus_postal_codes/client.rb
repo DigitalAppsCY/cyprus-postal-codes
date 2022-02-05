@@ -9,6 +9,7 @@ module CyprusPostalCodes
     include Paginator
     include Areas
     include Districts
+    include Search
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
