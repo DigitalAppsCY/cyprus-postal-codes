@@ -33,10 +33,6 @@ module CyprusPostalCodes
       @last_response if defined?(@last_response)
     end
 
-    def inspect
-      "#<CyprusPostalCodes::Client>"
-    end
-
     def default_params
       { lng: lng }
     end
