@@ -10,4 +10,5 @@ module CyprusPostalCodes
   autoload :Areas, "cyprus_postal_codes/client/areas"
   autoload :Districts, "cyprus_postal_codes/client/districts"
   autoload :Search, "cyprus_postal_codes/client/search"
+  autoload :GovernmentServices, "cyprus_postal_codes/client/government_services"
 end

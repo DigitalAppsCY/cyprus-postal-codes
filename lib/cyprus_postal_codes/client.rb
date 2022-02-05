@@ -10,6 +10,7 @@ module CyprusPostalCodes
     include Areas
     include Districts
     include Search
+    include GovernmentServices
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
