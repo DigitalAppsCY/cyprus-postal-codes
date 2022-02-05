@@ -3,6 +3,9 @@
 module CyprusPostalCodes
   class Client
     module Paginator
+      RESOURCES = %w[addresses result].freeze
+      private_constant :RESOURCES
+
       def next_page
         paginator&.dig("tokens", "next_page")
       end
@@ -17,14 +20,12 @@ module CyprusPostalCodes
 
       private
 
-      RESOURCE_INDEX = 2
-
       def paginator
-        @paginator = last_response&.body&.dig("data", resource, "paginator")
+        @paginator = last_response&.body&.dig("data", resource&.join, "paginator")
       end
 
       def resource
-        last_response&.body&.dig("data")&.keys&.fetch(RESOURCE_INDEX)
+        last_response&.body&.dig("data")&.keys & RESOURCES
       end
     end
   end
