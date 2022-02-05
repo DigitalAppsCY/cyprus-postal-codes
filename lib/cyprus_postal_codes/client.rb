@@ -6,14 +6,14 @@ require "faraday_middleware"
 module CyprusPostalCodes
   class Client
     include Addresses
-    include Paginator
     include Areas
     include Districts
-    include Search
     include GovernmentServices
-    include PostOfficeBoxes
-    include Parcel24Locations
     include OccupiedAreas
+    include Paginator
+    include Parcel24Locations
+    include PostOfficeBoxes
+    include Search
 
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
 
