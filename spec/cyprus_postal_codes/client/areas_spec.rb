@@ -22,7 +22,7 @@ RSpec.describe CyprusPostalCodes::Client::Areas do
       expect(service).to have_received(:get).with("get-areas", district: "lefkosia", page_token: nil)
     end
 
-    it "expects the district to be set" do
+    it "expects `district` to be set" do
       expect { service.areas }.to raise_error(ArgumentError, "missing keyword: :district")
     end
   end
