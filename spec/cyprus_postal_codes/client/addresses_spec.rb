@@ -22,7 +22,7 @@ RSpec.describe CyprusPostalCodes::Client::Addresses do
       expect(service).to have_received(:get).with("addresses", postal_code: 8020, page_token: nil)
     end
 
-    it "expects the post_code to be set" do
+    it "expects `post_code` to be set" do
       expect { service.addresses }.to raise_error(ArgumentError, "missing keyword: :post_code")
     end
   end
