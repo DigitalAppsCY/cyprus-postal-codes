@@ -4,12 +4,14 @@ on: [push, pull_request]
 
 jobs:
   rubocop:
-    runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
+    runs-on: ${{ matrix.os }}-latest
+
     strategy:
+      fail-fast: false
       matrix:
-        ruby:
-          - '3.1.0'
+        os: [ ubuntu ]
+        ruby: [ 2.7, 3.0, 3.1, head ]
 
     steps:
       - name: Checkout code
@@ -24,12 +26,14 @@ jobs:
         run: bundle exec rubocop
 
   spec:
-    runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
+    runs-on: ${{ matrix.os }}-latest
+
     strategy:
+      fail-fast: false
       matrix:
-        ruby:
-          - '3.1.0'
+        os: [ ubuntu ]
+        ruby: [ 2.7, 3.0, 3.1, head ]
 
     steps:
     - name: Checkout code
