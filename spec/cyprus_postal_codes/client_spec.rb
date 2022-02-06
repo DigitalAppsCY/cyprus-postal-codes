@@ -28,7 +28,7 @@ RSpec.describe CyprusPostalCodes::Client do
       let(:params) { { post_code: 8020, lng: "en" } }
 
       it "calls the requested resource with the specified parameters" do
-        described_class.new(api_key: "api_key", lng: "en").get("address", params)
+        described_class.new(api_key: "api_key").get("address", params)
 
         expect(connection).to have_received(:get).with("address", params)
       end

@@ -19,7 +19,7 @@ RSpec.describe CyprusPostalCodes::Client::Districts do
 
       service.districts
 
-      expect(service).to have_received(:get).with("district-selection")
+      expect(service).to have_received(:get).with("district-selection", lng: "el")
     end
   end
 end

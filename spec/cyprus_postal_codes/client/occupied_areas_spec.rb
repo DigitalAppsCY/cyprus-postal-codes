@@ -19,7 +19,8 @@ RSpec.describe CyprusPostalCodes::Client::OccupiedAreas do
 
       service.occupied_areas
 
-      expect(service).to have_received(:get).with("occupied-areas", district: nil, param: nil, page_token: nil)
+      expect(service).to have_received(:get).with("occupied-areas", lng: "el", district: nil, param: nil,
+                                                                    page_token: nil)
     end
   end
 end

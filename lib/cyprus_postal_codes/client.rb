@@ -18,13 +18,12 @@ module CyprusPostalCodes
     BASE_URL = "https://cypruspost.post/api/postal-codes/"
     private_constant :BASE_URL
 
-    def initialize(api_key:, lng: "el")
+    def initialize(api_key:)
       @api_key = api_key
-      @lng = lng
     end
 
     def get(resource, options = {})
-      @last_response = connection.get(resource, options.merge(default_params))
+      @last_response = connection.get(resource, options)
       @last_response.body["data"]
     end
 
@@ -34,11 +33,7 @@ module CyprusPostalCodes
 
     private
 
-    attr_reader :api_key, :lng
-
-    def default_params
-      { lng: lng }
-    end
+    attr_reader :api_key
 
     def connection
       @connection ||= Faraday.new do |conn|

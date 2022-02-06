@@ -19,7 +19,7 @@ RSpec.describe CyprusPostalCodes::Client::Search do
 
       service.search(district: "lefkosia", param: "arch")
 
-      expect(service).to have_received(:get).with("search", district: "lefkosia", param: "arch", area: nil,
+      expect(service).to have_received(:get).with("search", district: "lefkosia", param: "arch", lng: "el", area: nil,
                                                             page_token: nil)
     end
 

@@ -19,7 +19,7 @@ RSpec.describe CyprusPostalCodes::Client::Addresses do
 
       service.addresses(post_code: 8020)
 
-      expect(service).to have_received(:get).with("addresses", postal_code: 8020, page_token: nil)
+      expect(service).to have_received(:get).with("addresses", postal_code: 8020, lng: "el", page_token: nil)
     end
 
     it "expects `post_code` to be set" do

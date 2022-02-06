@@ -19,7 +19,8 @@ RSpec.describe CyprusPostalCodes::Client::Parcel24Locations do
 
       service.parcel24_locations
 
-      expect(service).to have_received(:get).with("parcel24-locations", district: nil, param: nil, page_token: nil)
+      expect(service).to have_received(:get).with("parcel24-locations", lng: "el", district: nil, param: nil,
+                                                                        page_token: nil)
     end
   end
 end

@@ -3,8 +3,8 @@
 module CyprusPostalCodes
   class Client
     module Districts
-      def districts
-        get("district-selection")
+      def districts(lng: "el")
+        get("district-selection", lng: lng)
       end
     end
   end

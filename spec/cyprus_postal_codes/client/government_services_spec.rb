@@ -19,7 +19,8 @@ RSpec.describe CyprusPostalCodes::Client::GovernmentServices do
 
       service.government_services(param: "arc")
 
-      expect(service).to have_received(:get).with("government-services", param: "arc", district: nil, page_token: nil)
+      expect(service).to have_received(:get).with("government-services", param: "arc", lng: "el", district: nil,
+                                                                         page_token: nil)
     end
 
     it "expects `district` to be set" do

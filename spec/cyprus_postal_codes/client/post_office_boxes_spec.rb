@@ -19,7 +19,7 @@ RSpec.describe CyprusPostalCodes::Client::PostOfficeBoxes do
 
       service.post_office_boxes(number: 12_220)
 
-      expect(service).to have_received(:get).with("post-office-boxes", number: 12_220, page_token: nil)
+      expect(service).to have_received(:get).with("post-office-boxes", lng: "el", number: 12_220, page_token: nil)
     end
 
     it "expects `number` to be set" do
