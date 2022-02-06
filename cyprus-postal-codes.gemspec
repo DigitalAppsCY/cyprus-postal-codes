@@ -5,8 +5,8 @@ require_relative "lib/cyprus_postal_codes/version"
 Gem::Specification.new do |spec|
   spec.name = "cyprus-postal-codes"
   spec.version = CyprusPostalCodes::VERSION
-  spec.authors = ["Evangelos Giataganas"]
-  spec.email = ["e.giataganas@gmail.com"]
+  spec.authors = ["Evangelos Giataganas", "Despo Pentara"]
+  spec.email = ["evangelos@digitalapps.io", "despo@extractmethod.com"]
 
   spec.summary       = "A gem for using the CyprusPost: Postal Codes API"
   spec.description   = "A gem for using the CyprusPost: Postal Codes API (https://documenter.getpostman.com/view/6477303/RztmtUjG)"
