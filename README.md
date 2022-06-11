@@ -47,7 +47,7 @@ $ gem install cyprus-postal-codes
 And access the library in Ruby:
 
 ```ruby
-require 'cyprus-postal-codes'
+require 'cyprus_postal_codes'
 ```
 
 ## Usage
